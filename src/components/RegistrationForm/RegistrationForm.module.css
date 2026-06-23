@@ -1,0 +1,76 @@
+.container {
+  width: 100%;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #191a15;
+  margin: 0 0 14px 0;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: 40px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  font-size: 16px;
+  line-height: 1.25;
+  color: #191a15;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.inputField:focus {
+  border-color: #385140;
+  /* Theme color highlight on focus */
+}
+
+.errorText {
+  color: #da4444;
+  font-size: 12px;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  border: none;
+  background-color: #385140;
+  /* Matches typical company palette patterns */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  cursor: pointer;
+  margin-top: 22px;
+  transition: background-color 0.2s ease;
+}
+
+.submitButton:hover {
+  background-color: #2b3d30;
+}

@@ -1,0 +1,107 @@
+.sidebarWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.sidebarWrapper.open {
+  pointer-events: auto;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.sidebarWrapper.open .backdrop {
+  opacity: 1;
+}
+
+.sidebarContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70vw;
+  height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.sidebarWrapper.open .sidebarContainer {
+  transform: translateX(0);
+}
+
+.logoLink {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--color-black);
+  padding: 10px 0;
+}
+
+.logoSpan {
+  color: var(--color-blue)
+}
+
+.navLink {
+  text-decoration: none;
+  color: var(--color-black);
+  line-height: 1.2;
+  padding: 15px 0;
+}
+
+.navLinks {
+  display: flex; 
+  flex-direction: column;
+  gap: 20px;
+}
+
+.authButton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 14px 40px;
+  color: var(--color-black);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  border-radius: 30px;
+}
+
+.logInBtn {
+  border: 1px solid rgba(25, 26, 21, 0.2);
+}
+
+.registerInBtn {
+  color: var(--color-white);
+  background-color: var(--color-blue);
+}
+
+.authButtons {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebarWrapper {
+    display: none;
+  }
+}
