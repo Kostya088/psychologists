@@ -1,4 +1,5 @@
 // import { useEffect, useState } from "react";
+import { useAuth } from "../../Hooks/useAuth";
 import css from "./Sidebar.module.css";
 import { Link } from "react-router-dom";
 
@@ -15,6 +16,8 @@ export default function Sidebar({
   onOpenLogin,
   onOpenRegister,
 }: SidebarProps) {
+  const { user, isLoading, logout } = useAuth();
+
   const sidebarClass = `${css.sidebarWrapper} ${isOpen ? css.open : ""}`;
 
   return (
@@ -33,33 +36,53 @@ export default function Sidebar({
           <Link className={css.navLink} to="/psychologists" onClick={onClose}>
             Psychologists
           </Link>
-          <Link className={css.navLink} to="/favorites" onClick={onClose}>
-            Favorites
-          </Link>
+          {!isLoading && user && (
+            <Link className={css.navLink} to="/favorites">
+              Favorites
+            </Link>
+          )}
         </nav>
 
-        <div className={css.authButtons}>
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              onOpenLogin();
-            }}
-            className={`${css.authButton} ${css.logInBtn}`}
-          >
-            Log in
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              onClose();
-              onOpenRegister();
-            }}
-            className={`${css.authButton} ${css.registerInBtn}`}
-          >
-            Register
-          </button>
-        </div>
+        {!isLoading && !user && (
+          <div className={css.authButtons}>
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                onOpenLogin();
+              }}
+              className={`${css.authButton} ${css.logInBtn}`}
+            >
+              Log in
+            </button>
+            <button
+              onClick={() => {
+                onClose();
+                onOpenRegister();
+              }}
+              className={`${css.authButton} ${css.registerInBtn}`}
+            >
+              Register
+            </button>
+          </div>
+        )}
+
+        {!isLoading && user && (
+          <div className={css.authButtons}>
+            <p>{user.displayName}</p>
+
+            <button
+              type="button"
+              onClick={() => {
+                onClose();
+                logout();
+              }}
+              className={`${css.authButton} ${css.logInBtn}`}
+            >
+              Log Out
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

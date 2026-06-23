@@ -3,6 +3,7 @@ import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home/Home";
 import Psychologists from "../pages/Psychologists/Psychologists";
 import Favorites from "../pages/Favorites/Favorites";
+import ProtecredRoute from "../components/AuthProvider/ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -11,7 +12,14 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/psychologists", element: <Psychologists /> },
-      { path: "/favorites", element: <Favorites /> },
+      {
+        path: "/favorites",
+        element: (
+          <ProtecredRoute>
+            <Favorites />
+          </ProtecredRoute>
+        ),
+      },
     ],
   },
 ]);

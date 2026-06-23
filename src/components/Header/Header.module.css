@@ -49,6 +49,11 @@
   padding: 15px 0;
 }
 
+.navPlaceholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .hamburgerWrapper {
   display: block;
   z-index: 1001;
@@ -56,6 +61,25 @@
 
 .authButtons {
   display: none;
+}
+
+.authButtonsPlaceholder {
+  width: 272px;
+  height: 50px;
+  border-radius: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(25, 26, 21, 0.06),
+    rgba(25, 26, 21, 0.14),
+    rgba(25, 26, 21, 0.06)
+  );
+}
+
+.userName {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .authButton {
@@ -97,7 +121,10 @@
   .authButtons {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
     gap: 8px;
+    min-width: 272px;
   }
 
   .hamburgerWrapper {
