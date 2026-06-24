@@ -1,0 +1,22 @@
+.controlsRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.sortLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-grey, #8a8a89);
+}
+
+.sortSelect {
+  min-width: 220px;
+  border: 1px solid #d7d7d7;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background-color: var(--color-white, #ffffff);
+  font-size: 14px;
+  color: var(--color-black, #191a15);
+}

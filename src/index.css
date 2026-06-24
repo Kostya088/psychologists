@@ -9,6 +9,14 @@
   /* --- Responsive Grid / Layout --- */
   /* Fluid padding that scales from 16px (at 320px wide) to 64px (at 1440px wide) */
   --container-padding: clamp(1rem, -1rem + 10vw, 8rem);
+  /* Fluid logo size from 18px up to the current 20px max */
+  --logo-font-size: clamp(1.125rem, 1.089rem + 0.179vw, 1.25rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -17,4 +25,16 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-grey);
   -webkit-font-smoothing: antialiased;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+p{
+  margin: 0;
 }

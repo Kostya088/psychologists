@@ -22,7 +22,7 @@
 }
 
 .logoLink {
-  font-size: 20px;
+  font-size: var(--logo-font-size);
   font-weight: 700;
   line-height: 1.2;
   text-decoration: none;
@@ -124,7 +124,7 @@
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
-    min-width: 272px;
+    /* min-width: 272px; */
   }
 
   .hamburgerWrapper {

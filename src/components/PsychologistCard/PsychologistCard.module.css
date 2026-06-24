@@ -1,0 +1,212 @@
+.doctorCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.leftColumn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 120px;
+  border: 2px solid rgba(52, 112, 255, 0.2);
+  border-radius: 30px;
+  padding: 12px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  /* gap: 15px; */
+}
+
+.avatar {
+  border-radius: 15px;
+}
+
+.doctorInfoWrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 10px;
+}
+
+.nameWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profession {
+  font-weight: 500;
+  line-height: 1.5;
+  color: #8a8a89;
+}
+
+.name{
+  font-size: 24px;
+  line-height: 100%;
+  color: #191a15;
+}
+
+.priceList {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.rating{
+  line-height: 150%;
+  color: #191a15;
+}
+
+.devider {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 16px;
+}
+
+.devider img {
+  display: block;
+  width: 1px;
+  height: 16px;
+} 
+
+.price {
+  line-height: 150%;
+  color: #191a15;
+}
+
+.spanPrice{
+  color: #38cd3e;
+}
+
+.profInfo {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 4px;
+  margin-top: 24px;
+}
+
+.infoItem {
+  background-color: var(--color-bg);
+  border-radius: 24px;
+  padding: 8px 16px;
+  line-height: 150%;
+}
+
+.infoItemSpan {
+  color: var(--color-black)
+}
+
+.about{
+  display: block;
+  color: var(--color-text-grey);
+  margin-top: 24px;
+}
+
+.readMoreBtn {
+  align-self: flex-start;
+  border: none;
+  background: transparent;
+  padding: 0;
+  color: var(--color-black);
+  font-weight: 500;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.expandedContent {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  /* transform: translateY(-8px); */
+  transition:
+    max-height 0.35s ease-in-out,
+    opacity 0.25s ease-in-out,
+    transform 0.35s ease-in-out;
+}
+
+.expandedOpen {
+  max-height: 700px;
+  opacity: 1;
+  /* transform: translateY(0); */
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 48px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewerWrapper{
+  display: flex;
+  gap: 12px;
+}
+
+.reviewerAvatar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: var(--color-light-blue);
+  border-radius: 100px;
+}
+
+.reviewerAvatar p {
+  color: var(--color-blue);
+  font-size: 20px;
+  line-height: 100%;
+}
+
+.reviewer {
+  line-height: 125%;
+  color: var(--color-black);
+}
+
+.reviewerRating{
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--color-black);
+}
+
+.appointmentBtn {
+  margin-top: 40px;
+  border: none;
+  border-radius: 30px;
+  padding: 14px 32px;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  cursor: pointer;
+  /* align-self: center; */
+}
+
+@media screen and (min-width: 768px) {
+  .doctorCard {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .doctorInfoWrapper {
+    flex-direction: row;
+  }
+
+  .priceList {
+    margin-right: 78px;
+  }
+}
