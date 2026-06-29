@@ -1,0 +1,143 @@
+.homePage {
+  display: flex;
+  flex-direction: column;
+  gap: 125px;
+  align-items: center;
+  justify-content: center;
+}
+
+.textContainer {
+  max-width: 595px;
+}
+
+.imageContainer {
+  max-width: 464px;
+}
+
+.mainHeading {
+  margin: 0;
+  font-weight: 600;
+  font-size: 80px;
+  line-height: 102%;
+  letter-spacing: -0.02em;
+  color: var(--color-black)
+}
+
+.headingSpan {
+  font-style: italic;
+  color: var(--color-blue)
+}
+
+.homeText {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  letter-spacing: -0.02em;
+  color: var(--color-black);
+  margin-top: 20px;
+}
+
+.getStartedBtn {
+  padding: 18px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--color-blue);
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  margin-top: 64px;
+}
+
+.arrowIcon {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-white);
+}
+
+.homeImage {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.contactsIcon {
+  position: absolute;
+  top: 38px;
+  right: -43px;
+  width: 59px;
+  height: 59px;
+}
+
+.questionIcon {
+  position: absolute;
+  top: 185px;
+  left: -39px;
+  width: 49px;
+  height: 49px;
+}
+
+.floatingContainer {
+  position: absolute;
+  top: 333px;
+  left: -101px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+  background-color: var(--color-blue);
+  border-radius: 20px;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  background-color: var(--color-white);
+  border-radius: 13px;
+}
+
+.tickIcon {
+  width: 30px;
+  height: 30px;
+  fill: var(--color-blue);
+}
+
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.infoText {
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(251, 251, 251, 0.5);
+}
+
+.infoNumber {
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--color-white)
+}
+
+@media screen and (min-width: 768px) {
+  .homePage {
+    flex-direction: row;
+  }
+
+  .imageContainer {
+    display: block;
+  }
+}
