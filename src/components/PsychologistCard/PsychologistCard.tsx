@@ -1,8 +1,9 @@
+import { useAuth } from "../../Hooks/useAuth";
 import type { Psychologist } from "../../types/psychologists";
 import css from "./PsychologistCard.module.css";
 
 interface PsychologistCardProps {
-  psychologist: Psychologist;
+  psychologist: Psychologist & { id: string };
   isExpanded: boolean;
   onReadMore: () => void;
 }
@@ -12,15 +13,24 @@ export default function PsychologistCard({
   isExpanded,
   onReadMore,
 }: PsychologistCardProps) {
+  const { favorites, toggleFavorite } = useAuth();
+
+  const isFavorited = favorites.includes(psychologist.id);
+
+  const handleClick = async () => {
+    await toggleFavorite(psychologist.id);
+  };
+
   return (
     <div className={css.doctorCard}>
       <button
         type="button"
         className={css.favotiteBtn}
         aria-label="Add to favorites"
+        onClick={handleClick}
       >
         <svg
-          className={css.heartIcon}
+          className={`${css.heartIcon} ${isFavorited ? css.active : ""}`}
           aria-hidden="true"
           fill="none"
           stroke="currentColor"
