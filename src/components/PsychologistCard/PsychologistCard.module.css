@@ -1,9 +1,32 @@
 .doctorCard {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
 }
+
+.favotiteBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: transparent;
+}
+
+.heartIcon {
+  width: 26px;
+  height: 26px;
+  transition: transform 0.35s ease-in-out;
+}
+
+/* .heartIcon:hover {
+  stroke: var(--color-blue);
+  fill: var(--color-blue)
+} */
 
 .leftColumn {
   display: flex;
@@ -71,7 +94,7 @@
   height: 16px;
 }
 
-.devider img {
+.deviderIcon {
   display: block;
   width: 1px;
   height: 16px;

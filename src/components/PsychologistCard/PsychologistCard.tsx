@@ -1,6 +1,5 @@
 import type { Psychologist } from "../../types/psychologists";
 import css from "./PsychologistCard.module.css";
-import dividerIcon from "../../assets/Vector 3.svg";
 
 interface PsychologistCardProps {
   psychologist: Psychologist;
@@ -15,6 +14,21 @@ export default function PsychologistCard({
 }: PsychologistCardProps) {
   return (
     <div className={css.doctorCard}>
+      <button
+        type="button"
+        className={css.favotiteBtn}
+        aria-label="Add to favorites"
+      >
+        <svg
+          className={css.heartIcon}
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+        >
+          <use href="/icons.svg#icon-heart" />
+        </svg>
+      </button>
+
       {/* left column */}
       <div className={css.leftColumn}>
         <img
@@ -38,7 +52,14 @@ export default function PsychologistCard({
             <ul className={css.priceList}>
               <li className={css.rating}>Rating: {psychologist.rating}</li>
               <li className={css.devider}>
-                <img src={dividerIcon} alt="" aria-hidden="true" />
+                <svg
+                  className={css.deviderIcon}
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <use href="/icons.svg#icon-devider" />
+                </svg>
               </li>
               <li className={css.price}>
                 Price / 1 hour:{" "}
