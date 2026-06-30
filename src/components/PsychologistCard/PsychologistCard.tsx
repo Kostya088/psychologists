@@ -1,5 +1,9 @@
+import { useState } from "react";
 import { useAuth } from "../../Hooks/useAuth";
 import type { Psychologist } from "../../types/psychologists";
+import { BookingForm } from "../BookingForm/BookingForm";
+import { LoginForm } from "../LogInForm/LogInForm";
+import { Modal } from "../Modal/Modal";
 import css from "./PsychologistCard.module.css";
 
 interface PsychologistCardProps {
@@ -13,12 +17,23 @@ export default function PsychologistCard({
   isExpanded,
   onReadMore,
 }: PsychologistCardProps) {
-  const { favorites, toggleFavorite } = useAuth();
+  const { user, favorites, toggleFavorite } = useAuth();
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const isFavorited = favorites.includes(psychologist.id);
 
   const handleClick = async () => {
     await toggleFavorite(psychologist.id);
+  };
+
+  const handleAppointmentClick = () => {
+    if (user) {
+      setIsBookingOpen(true);
+      return;
+    }
+
+    setIsLoginOpen(true);
   };
 
   return (
@@ -139,10 +154,27 @@ export default function PsychologistCard({
             ))}
           </ul>
 
-          <button type="button" className={css.appointmentBtn}>
+          <button
+            type="button"
+            className={css.appointmentBtn}
+            onClick={handleAppointmentClick}
+          >
             Make an appointment
           </button>
         </div>
+
+        <Modal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)}>
+          <BookingForm psychologist={psychologist} />
+        </Modal>
+
+        <Modal isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)}>
+          <LoginForm
+            onSuccess={() => {
+              setIsLoginOpen(false);
+              setIsBookingOpen(true);
+            }}
+          />
+        </Modal>
       </div>
     </div>
   );

@@ -35,7 +35,9 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     <div className={css.backDrop} onClick={onClose}>
       <div className={css.modal} onClick={(e) => e.stopPropagation()}>
         <button className={css.closeBtn} onClick={onClose}>
-          &times;
+          <svg className={css.crossIcon}>
+            <use href="/icons.svg#icon-close" />
+          </svg>
         </button>
         {children}
       </div>
