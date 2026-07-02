@@ -44,7 +44,15 @@ export default function Header() {
             <div className={css.authButtonsPlaceholder} aria-hidden="true" />
           ) : user ? (
             <>
-              <p className={css.userName}>{user.displayName ?? "User"}</p>
+              <div className={css.userInfoWrapper}>
+                <div className={css.userAvatarWrapper}>
+                  <svg className={css.userIcon}>
+                    <use href="/icons.svg#icon-user" />
+                  </svg>
+                </div>
+
+                <p className={css.userName}>{user.displayName ?? "User"}</p>
+              </div>
 
               <button
                 type="button"

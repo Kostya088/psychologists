@@ -56,7 +56,7 @@ export const usePsychologistsData = () => {
   const hasMore = visibleCount < sortedPsychologists.length;
   const isLoadingMore = isFetching && !isLoading;
 
-  const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortChange = (event: { target: { value: string } }) => {
     setSortOption(event.target.value as SortOption);
     setVisibleCount(PAGE_SIZE);
   };

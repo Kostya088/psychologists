@@ -6,10 +6,8 @@
   --color-bg: #F3F3F3;
   --color-text-grey: rgba(25, 26, 21, 0.5);
 
-  /* --- Responsive Grid / Layout --- */
-  /* Fluid padding that scales from 16px (at 320px wide) to 64px (at 1440px wide) */
+  
   --container-padding: clamp(1rem, -1rem + 10vw, 8rem);
-  /* Fluid logo size from 18px up to the current 20px max */
   --logo-font-size: clamp(1.125rem, 1.089rem + 0.179vw, 1.25rem);
 }
 

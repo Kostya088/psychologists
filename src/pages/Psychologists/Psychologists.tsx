@@ -1,6 +1,7 @@
 import PsychologistsList from "../../components/PsychologistsList/PsychologistsList";
-import css from "./Psychologists.module.css";
+// import css from "./Psychologists.module.css";
 import { usePsychologistsData } from "../../Hooks/usePsychologistsData";
+import SortControls from "../../components/DropDown/DropDown";
 
 export default function Psychologists() {
   const {
@@ -27,25 +28,10 @@ export default function Psychologists() {
 
   return (
     <>
-      <div className={css.controlsRow}>
-        <label className={css.sortLabel} htmlFor="psychologists-sort">
-          Sort by:
-        </label>
-        <select
-          id="psychologists-sort"
-          className={css.sortSelect}
-          value={sortOption}
-          onChange={handleSortChange}
-        >
-          <option value="default">Show all</option>
-          <option value="nameAsc">A to Z</option>
-          <option value="nameDesc">Z to A</option>
-          <option value="priceAsc">Price per hour up</option>
-          <option value="priceDesc">Price per hour down</option>
-          <option value="ratingAsc">Rating up</option>
-          <option value="ratingDesc">Rating down</option>
-        </select>
-      </div>
+      <SortControls
+        sortOption={sortOption}
+        handleSortChange={handleSortChange}
+      />
 
       {visiblePsychologists.length === 0 ? (
         <p>No psychologists found.</p>

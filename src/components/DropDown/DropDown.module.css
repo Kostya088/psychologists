@@ -1,0 +1,99 @@
+.controlsRow {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  width: 226px;
+  margin-bottom: 32px;
+}
+
+.sortLabel {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 129%;
+  color: var(--color-text-grey)
+}
+
+.dropdownWrapper {
+  position: relative;
+}
+
+.customSelectTrigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-blue);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--color-white);
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.arrow {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+  transform: rotate(180deg);
+}
+
+.arrowOpen {
+  transform: rotate(0deg);
+}
+
+.customOptionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 8px;
+  width: 100%;
+  background-color: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  padding: 14px 18px;
+  list-style: none;
+  z-index: 50;
+  border: 1px solid #f3f4f6;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.customOptionsListOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.customOptionItem {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  padding: 0;
+  color: rgba(25, 26, 21, 0.3);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  cursor: pointer;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.customOptionItem:hover {
+  background-color: #3471ff17;
+  color: var(--color-black);
+}
+
+.customOptionItem.selected {
+  color: var(--color-black);
+  font-weight: 500;
+}

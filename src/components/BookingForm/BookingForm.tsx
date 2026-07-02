@@ -3,8 +3,17 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import type { Psychologist } from "../../types/psychologists";
 import css from "./BookingForm.module.css";
+import toast from "react-hot-toast";
 
-const schema = yup.object().shape({
+interface BookingFormData {
+  name: string;
+  phone: string;
+  time: string;
+  email: string;
+  comment?: string;
+}
+
+const schema: yup.ObjectSchema<BookingFormData> = yup.object({
   name: yup
     .string()
     .min(2, "Name must be at least 2 characters")
@@ -18,30 +27,28 @@ const schema = yup.object().shape({
     .string()
     .email("Invalid email format")
     .required("Email is required"),
-  comment: yup
-    .string()
-    .max(200, "Comment can contain only up to 200 symbols")
-    .required("Comment is required"),
+  comment: yup.string().max(200, "Comment can contain only up to 200 symbols"),
 });
-
-type BookingFormData = yup.InferType<typeof schema>;
 
 interface BookingFormProps {
   psychologist: Psychologist & { id: string };
+  onSuccess?: () => void;
 }
 
-export const BookingForm = ({ psychologist }: BookingFormProps) => {
+export const BookingForm = ({ psychologist, onSuccess }: BookingFormProps) => {
   const {
     register,
-    handleSubmit,
+    handleSubmit: submitForm,
     formState: { errors },
   } = useForm<BookingFormData>({
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data: BookingFormData) => {
+  const handleSubmit = submitForm((data: BookingFormData) => {
     void data;
-  };
+    onSuccess?.();
+    toast.success("Thank you for making an appointmenr!");
+  });
 
   return (
     <div>
@@ -67,7 +74,7 @@ export const BookingForm = ({ psychologist }: BookingFormProps) => {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className={css.form}>
+      <form onSubmit={handleSubmit} className={css.form}>
         <div className={css.inputGroup}>
           <input
             type="text"
