@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import css from "./Header.module.css";
 import { useState } from "react";
 import Hamburger from "hamburger-react";
@@ -25,17 +25,27 @@ export default function Header() {
           <Link className={css.navLink} to="/">
             Home
           </Link>
-          <Link className={css.navLink} to="/psychologists">
+          <NavLink
+            className={({ isActive }) =>
+              `${css.navLink} ${isActive ? css.navLinkActive : ""}`
+            }
+            to="/psychologists"
+          >
             Psychologists
-          </Link>
+          </NavLink>
           {isLoading ? (
             <span className={`${css.navLink} ${css.navPlaceholder}`}>
               Favorites
             </span>
           ) : user ? (
-            <Link className={css.navLink} to="/favorites">
+            <NavLink
+              className={({ isActive }) =>
+                `${css.navLink} ${isActive ? css.navLinkActive : ""}`
+              }
+              to="/favorites"
+            >
               Favorites
-            </Link>
+            </NavLink>
           ) : null}
         </nav>
 
